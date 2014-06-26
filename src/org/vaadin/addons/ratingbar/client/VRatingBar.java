@@ -1,8 +1,11 @@
 package org.vaadin.addons.ratingbar.client;
 
-import com.google.gwt.dom.client.AnchorElement;
+import java.util.ArrayList;
+import java.util.List;
+
 import com.google.gwt.dom.client.DivElement;
 import com.google.gwt.dom.client.Document;
+import com.google.gwt.dom.client.Element;
 import com.google.gwt.user.client.ui.Widget;
 
 /**
@@ -15,29 +18,45 @@ public class VRatingBar extends Widget {
 	/*
 	 * A dummy element.
 	 */
-	private AnchorElement element;
+	private Element element;
+
+	/*
+	 * The rating items.
+	 */
+	private List<Element> items = new ArrayList<Element>(5);
 
 	/**
 	 * Create the rating bar.
 	 */
 	public VRatingBar() {
 
-		element = Document.get().createAnchorElement();
+		element = Document.get().createDivElement();
 
-		setElement(element);
-
-		element.setHref("http://www.vaadin.com");
-		element.appendChild(Document.get().createTextNode("Go to Vaadin"));
-
-		DivElement ratingsElement = Document.get().createDivElement();
-		element.appendChild(ratingsElement);
+		// This is actually a horizontal layout ;)
+		element.addClassName("v-horizontallayout");
+		element.addClassName("v-layout");
+		element.addClassName("v-horizontal");
 
 		for (int i = 0; i < 5; i++) {
-			DivElement item = Document.get().createDivElement();
-			item.addClassName("burst-12");
+			DivElement slotElement = Document.get().createDivElement();
+			slotElement.addClassName("v-slot"); // Need to add the slot, otherwise won't work.
 
-			ratingsElement.appendChild(item);
+			DivElement item = Document.get().createDivElement();
+
+			if (i < 3) {
+				item.addClassName("v-rating-item-selected");
+			} else {
+				item.addClassName("v-rating-item");
+			}
+
+			items.add(item);
+
+			slotElement.appendChild(item);
+
+			element.appendChild(slotElement);
 		}
+
+		setElement(element);
 
 		setValue(12);
 	}
@@ -48,9 +67,6 @@ public class VRatingBar extends Widget {
 	 */
 	public void setValue(double value) {
 		callAlert("I receive: " + value);
-
-		element.setHref("vaadin.com/" + value);
-		element.getFirstChild().setNodeValue("Go to Vaadin " + value);
 	}
 
 	/*

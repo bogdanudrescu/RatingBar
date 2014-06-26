@@ -41,7 +41,9 @@ public class RatingbarUI extends UI {
 
 		button.addClickListener(new Button.ClickListener() {
 			public void buttonClick(ClickEvent event) {
-				//ratingBar.setValue((Integer) textField.getPropertyDataSource().getValue());
+				Integer value = (Integer) textField.getPropertyDataSource().getValue();
+				System.out.println("Button clicked with value: " + value);
+				ratingBar.setValue(value);
 			}
 		});
 

@@ -38,6 +38,14 @@ public class RatingBar extends AbstractField<Double> {
 	}
 
 	/* (non-Javadoc)
+	 * @see com.vaadin.ui.AbstractField#getState()
+	 */
+	@Override
+	protected RatingBarState getState() {
+		return (RatingBarState) super.getState();
+	}
+
+	/* (non-Javadoc)
 	 * @see com.vaadin.ui.AbstractField#setValue(java.lang.Object)
 	 */
 	@Override

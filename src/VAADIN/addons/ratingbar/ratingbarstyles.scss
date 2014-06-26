@@ -1,36 +1,58 @@
 
 @mixin ratingbarstyles {
 
-	/*
-	.burst-12 {
-	    background: red;
-	    width: 80px;
-	    height: 80px;
-	    position: relative;
-	    text-align: center;
+	.v-rating-item {
+		width: 96px;
+		height: 48px;
+		background: #eee;
+		border-color: red;
+		border-style: solid;
+		border-width: 2px 2px 50px 2px;
+		border-radius: 100%;
+		position: relative;
+	}
+	
+	.v-rating-item:before {
+		content: "";
+		position: absolute;
+		top: 50%;
+		left: 0;
+		background: #eee;
+		border: 18px solid red;
+		border-radius: 100%;
+		width: 12px;
+		height: 12px;
+	}
+	
+	.v-rating-item:after {
+		content: "";
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		background: red;
+		border: 18px solid #eee;
+		border-radius:100%;
+		width: 12px;
+		height: 12px;
+	}
+	
+	.v-rating-item-selected {
+		@extend .v-rating-item;
+
+		border-color: blue;
 	}
 
-	.burst-12:before, .burst-12:after {
-	    content: "";
-	    position: absolute;
-	    top: 0;
-	    left: 0;
-	    height: 80px;
-	    width: 80px;
-	    background: red;
+	.v-rating-item-selected:before {
+		@extend .v-rating-item:before;
+
+		border-color: blue;
 	}
-	.burst-12:before {
-	    -webkit-transform: rotate(30deg);
-	       -moz-transform: rotate(30deg);
-	        -ms-transform: rotate(30deg);
-	         -o-transform: rotate(30deg);
+	
+	.v-rating-item-selected:after {
+		@extend .v-rating-item:after;
+
+		background: blue;
 	}
-	.burst-12:after {
-	    -webkit-transform: rotate(60deg);
-	       -moz-transform: rotate(60deg);
-	        -ms-transform: rotate(60deg);
-	         -o-transform: rotate(60deg);
-	}
-	*/
+	
 
 }

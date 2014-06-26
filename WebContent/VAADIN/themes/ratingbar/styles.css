@@ -7063,3 +7063,54 @@ body .ratingbar.v-app .v-app-loading {
 	background: transparent repeat-x;
 	background-image: url(../reindeer/window/img/black/content-bg.png);/** sprite-ref: black-verticals; sprite-alignment: repeat */
 }
+
+.ratingbar .v-rating-item, .ratingbar .v-rating-item-selected {
+	width: 96px;
+	height: 48px;
+	background: #eee;
+	border-color: red;
+	border-style: solid;
+	border-width: 2px 2px 50px 2px;
+	border-radius: 100%;
+	position: relative;
+}
+
+.ratingbar .v-rating-item:before, .ratingbar .v-rating-item-selected:before {
+	content: "";
+	position: absolute;
+	top: 50%;
+	left: 0;
+	background: #eee;
+	border: 18px solid red;
+	border-radius: 100%;
+	width: 12px;
+	height: 12px;
+}
+
+.ratingbar .v-rating-item:after, .ratingbar .v-rating-item-selected:after {
+	content: "";
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	background: red;
+	border: 18px solid #eee;
+	border-radius: 100%;
+	width: 12px;
+	height: 12px;
+}
+
+.ratingbar .v-rating-item-selected {
+	border-color: blue;
+}
+
+.ratingbar .v-rating-item-selected:before {
+	border-color: blue;
+}
+
+.ratingbar .v-rating-item-selected:after {
+	background: blue;
+}
+
+.ratingbar .test {
+	color: red;
+}
